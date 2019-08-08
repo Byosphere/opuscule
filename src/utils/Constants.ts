@@ -10,5 +10,5 @@ export const UP = 'up';
 export const DOWN = 'down';
 export const RIGHT = 'right';
 export const LEFT = 'left';
-export const CURSOR_SPEED = 80;
+export const CURSOR_SPEED = 50;
 export const CURSOR_TAMPON = 2;

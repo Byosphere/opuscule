@@ -10,6 +10,11 @@
                 "type": "image",
                 "key": "tiles",
                 "url": "src/assets/tiles/tiles.png"
+            },
+            {
+                "type": "image",
+                "key": "char",
+                "url": "src/assets/objects/char.png"
             }
         ]
     }

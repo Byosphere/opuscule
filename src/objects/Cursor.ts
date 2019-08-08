@@ -22,15 +22,31 @@ export default class Cursor {
         clearInterval(this.move);
     }
 
-    cursorRight() {
+    goRight() {
+        this.marker.x = this.marker.x + this.width;
 
+        if (this.move) this.stop();
+        this.move = setInterval(() => {
+            this.temp++;
+            if (this.temp > 2) {
+                this.marker.x = this.marker.x + this.width;
+            }
+        }, CURSOR_SPEED);
     }
 
-    cursorUp() {
+    goUp() {
+        this.marker.y = this.marker.y - this.height;
 
+        if (this.move) this.stop();
+        this.move = setInterval(() => {
+            this.temp++;
+            if (this.temp > 2) {
+                this.marker.y = this.marker.y - this.height;
+            }
+        }, CURSOR_SPEED);
     }
 
-    cursorDown() {
+    goDown() {
         this.marker.y = this.marker.y + this.height;
 
         if (this.move) this.stop();
@@ -42,7 +58,23 @@ export default class Cursor {
         }, CURSOR_SPEED);
     }
 
-    cursorLeft() {
+    goLeft() {
+        this.marker.x = this.marker.x - this.height;
 
+        if (this.move) this.stop();
+        this.move = setInterval(() => {
+            this.temp++;
+            if (this.temp > 2) {
+                this.marker.x = this.marker.x - this.height;
+            }
+        }, CURSOR_SPEED);
+    }
+
+    get x(): number {
+        return this.marker.x;
+    }
+
+    get y(): number {
+        return this.marker.y;
     }
 }
