@@ -19,7 +19,7 @@ export default class MainScene extends TacticalScene {
         this.map.createStaticLayer(0, tileset, 0, 0);
 
         this.cursor = new Cursor(this, this.map.tileWidth, this.map.tileHeight);
-        this.character = new Character(this);
+        this.character = new Character(32, 32, this, this.map);
         this.finder = new EasyStar();
 
         var grid = [];
@@ -66,20 +66,25 @@ export default class MainScene extends TacticalScene {
     };
 
     actionButtonReleased() {
-        this.finder.findPath(
-            Math.floor(this.character.x / 32),
-            Math.floor(this.character.y / 32),
-            Math.floor(this.cursor.x / 32),
-            Math.floor(this.cursor.y / 32),
-            (path) => {
-                if (path === null) {
-                    console.warn("Path was not found.");
-                } else {
-                    this.character.move(path, () => this.character.showRange(this.map));
+        if (this.character.isSelected()) {
+            this.finder.findPath(
+                Math.floor(this.character.x / 32),
+                Math.floor(this.character.y / 32),
+                Math.floor(this.cursor.x / 32),
+                Math.floor(this.cursor.y / 32),
+                (path) => {
+                    if (path === null) {
+                        console.warn("Path was not found.");
+                    } else {
+                        this.character.move(path);
+                    }
                 }
-            }
-        );
-        this.finder.calculate();
+            );
+            this.finder.calculate();
+        } else if (this.cursor.x === this.character.x && this.cursor.y === this.character.y) {
+            this.character.select();
+        }
+
     }
 
     downButtonReleased() {

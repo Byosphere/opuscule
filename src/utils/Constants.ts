@@ -12,3 +12,8 @@ export const RIGHT = 'right';
 export const LEFT = 'left';
 export const CURSOR_SPEED = 50;
 export const CURSOR_TAMPON = 2;
+
+export const CHAR_ACTIF = 0;
+export const CHAR_SELECTED = 1
+export const CHAR_MOVED = 2;
+export const CHAR_INACTIF = 3;
