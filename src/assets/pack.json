@@ -13,8 +13,33 @@
             },
             {
                 "type": "image",
+                "key": "moveTile",
+                "url": "src/assets/objects/moveTile.png"
+            },
+            {
+                "type": "image",
+                "key": "attackTile",
+                "url": "src/assets/objects/attackTile.png"
+            },
+            {
+                "type": "image",
                 "key": "char",
                 "url": "src/assets/objects/char.png"
+            },
+            {
+                "type": "image",
+                "key": "arrowTile",
+                "url": "src/assets/objects/arrowTile.png"
+            },
+            {
+                "type": "image",
+                "key": "arrowCornerTile",
+                "url": "src/assets/objects/arrowCornerTile.png"
+            },
+            {
+                "type": "image",
+                "key": "targetTile",
+                "url": "src/assets/objects/targetTile.png"
             }
         ]
     }

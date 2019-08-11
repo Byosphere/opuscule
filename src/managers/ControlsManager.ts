@@ -6,7 +6,7 @@ interface PlayerInput {
     type: string
 }
 
-export class ControlsManager extends Phaser.Scene {
+export default class ControlsManager extends Phaser.Scene {
 
 
     private gamepads: Gamepad[] = [];
@@ -31,6 +31,7 @@ export class ControlsManager extends Phaser.Scene {
     }
 
     public setCallbackContext(context: ControlsInterface, scene: Scene) {
+        console.log(context);
         this.callbackContext = context;
         this.parentScene = scene;
     }
@@ -228,21 +229,21 @@ export class ControlsManager extends Phaser.Scene {
 
 export interface ControlsInterface {
 
-    mouseOver(gameObject: Phaser.GameObjects.GameObject): void;
-    mouseOut(gameObject: Phaser.GameObjects.GameObject): void;
-    click(gameObject: Phaser.GameObjects.GameObject): void;
+    mouseOver?: (gameObject: Phaser.GameObjects.GameObject) => void;
+    mouseOut?: (gameObject: Phaser.GameObjects.GameObject) => void;
+    click?: (gameObject: Phaser.GameObjects.GameObject) => void;
 
-    actionButtonReleased(playerNum?: number): void;
-    upButtonReleased(playerNum?: number): void;
-    downButtonReleased(playerNum?: number): void;
-    leftButtonReleased(playerNum?: number): void;
-    rightButtonReleased(playerNum?: number): void;
-    cancelButtonReleased(playerNum?: number): void;
+    actionButtonReleased?: (playerNum?: number) => void;
+    upButtonReleased?: (playerNum?: number) => void;
+    downButtonReleased?: (playerNum?: number) => void;
+    leftButtonReleased?: (playerNum?: number) => void;
+    rightButtonReleased?: (playerNum?: number) => void;
+    cancelButtonReleased?: (playerNum?: number) => void;
 
-    actionButtonDown(playerNum?: number): void;
-    upButtonDown(playerNum?: number): void;
-    downButtonDown(playerNum?: number): void;
-    leftButtonDown(playerNum?: number): void;
-    rightButtonDown(playerNum?: number): void;
-    cancelButtonDown(playerNum?: number): void;
+    actionButtonDown?: (playerNum?: number) => void;
+    upButtonDown?: (playerNum?: number) => void;
+    downButtonDown?: (playerNum?: number) => void;
+    leftButtonDown?: (playerNum?: number) => void;
+    rightButtonDown?: (playerNum?: number) => void;
+    cancelButtonDown?: (playerNum?: number) => void;
 }

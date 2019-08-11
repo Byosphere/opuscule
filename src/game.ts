@@ -1,7 +1,8 @@
 import "phaser";
-import MainScene from "./scenes/mainScene";
-import { ControlsManager } from "./managers/ControlsManager";
-import BootScene from "./scenes/bootScene";
+import MainScene from "./scenes/MainScene";
+import ControlsManager from "./managers/ControlsManager";
+import BootScene from "./scenes/BootScene";
+import MenuScene from "./scenes/MenuScene";
 
 // main game configuration
 const config: Phaser.Types.Core.GameConfig = {
@@ -9,7 +10,7 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 720,
     type: Phaser.AUTO,
     parent: "game",
-    scene: [BootScene, MainScene, ControlsManager],
+    scene: [BootScene, MainScene, ControlsManager, MenuScene],
     input: { gamepad: true },
     disableContextMenu: true,
     render: { antialias: true, pixelArt: true },

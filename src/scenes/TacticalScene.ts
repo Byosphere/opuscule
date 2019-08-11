@@ -1,6 +1,9 @@
 import { ControlsInterface } from "./../managers/ControlsManager";
+import ControlsManager from "./../managers/ControlsManager";
 
 export default class TacticalScene extends Phaser.Scene implements ControlsInterface {
+
+    public controlsManager: ControlsManager;
 
     constructor(key: string) {
         super({ key });
@@ -8,11 +11,11 @@ export default class TacticalScene extends Phaser.Scene implements ControlsInter
 
     preload(): void {
         this.scene.launch('ControlsManager');
-        let controlsManager: any = this.scene.get('ControlsManager');
-        controlsManager.setCallbackContext(this, this);
+        this.controlsManager = this.scene.get('ControlsManager') as ControlsManager;
+        this.controlsManager.setCallbackContext(this, this);
     }
 
-    create(): void {}
+    create(): void { }
     mouseOver(gameObject: Phaser.GameObjects.GameObject): void { }
     mouseOut(gameObject: Phaser.GameObjects.GameObject): void { }
     click(gameObject: Phaser.GameObjects.GameObject): void { }
